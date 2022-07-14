@@ -27,7 +27,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>3.0.0-M6</version>
                 <configuration>
-                    <goal>install</goal>
+                    <goals>install</goals>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
