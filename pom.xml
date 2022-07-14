@@ -14,7 +14,7 @@
     </parent>
     <groupId>org.vitargo</groupId>
     <artifactId>vs-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>vs-pet-clinic</name>
     <description>vs-pet-clinic</description>
     <properties>
@@ -52,6 +52,6 @@
     </build>
     <scm>
         <developerConnection>scm:git:git@github.com:vitargo/vs-pet-clinic.git</developerConnection>
-        <tag>vs-pet-clinic-0.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 </project>
