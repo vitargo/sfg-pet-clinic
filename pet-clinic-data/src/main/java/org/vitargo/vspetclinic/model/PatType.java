@@ -1,6 +1,6 @@
 package org.vitargo.vspetclinic.model;
 
-public class PatType {
+public class PatType extends BaseEntity {
     private String name;
 
     public String getName() {
