@@ -1,10 +1,12 @@
 package org.vitargo.vspetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import org.vitargo.vspetclinic.model.Vet;
 import org.vitargo.vspetclinic.services.VetService;
 
 import java.util.Set;
 
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {

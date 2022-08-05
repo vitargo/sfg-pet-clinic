@@ -1,11 +1,13 @@
 package org.vitargo.vspetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import org.vitargo.vspetclinic.model.Owner;
 import org.vitargo.vspetclinic.services.CrudService;
 import org.vitargo.vspetclinic.services.OwnerService;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {
