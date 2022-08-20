@@ -3,10 +3,7 @@ package org.vitargo.vspetclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.vitargo.vspetclinic.model.*;
-import org.vitargo.vspetclinic.services.OwnerService;
-import org.vitargo.vspetclinic.services.PetTypeService;
-import org.vitargo.vspetclinic.services.SpecialitiesService;
-import org.vitargo.vspetclinic.services.VetService;
+import org.vitargo.vspetclinic.services.*;
 
 import java.time.LocalDate;
 
@@ -17,12 +14,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialitiesService specialitiesService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitiesService specialitiesService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitiesService specialitiesService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialitiesService = specialitiesService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -107,5 +106,14 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Loading vets...");
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(petOwner1);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneeze cat!");
+
+        visitService.save(catVisit);
+
+        System.out.println("Loading visits...");
     }
 }
