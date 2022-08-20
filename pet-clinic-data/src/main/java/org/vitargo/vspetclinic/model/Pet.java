@@ -1,7 +1,5 @@
 package org.vitargo.vspetclinic.model;
 
-import org.graalvm.compiler.replacements.nodes.UnaryMathIntrinsicNode;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
