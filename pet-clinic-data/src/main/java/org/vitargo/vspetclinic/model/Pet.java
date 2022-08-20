@@ -1,12 +1,25 @@
 package org.vitargo.vspetclinic.model;
 
+import org.graalvm.compiler.replacements.nodes.UnaryMathIntrinsicNode;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "type")
     private PetType petType;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
+
+    @Column(name = "birth_day")
     private LocalDate birthday;
 
     public PetType getPetType() {

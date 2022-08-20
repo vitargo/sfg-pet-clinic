@@ -1,6 +1,12 @@
 package org.vitargo.vspetclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class PetType extends BaseEntity {
+
+    @Column(name = "name")
     private String name;
 
     public String getName() {
