@@ -2,10 +2,20 @@ package org.vitargo.vspetclinic.model;
 
 import sun.util.resources.LocaleData;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "visits")
 public class Visit extends BaseEntity{
 
+    @Column(name = "date")
     private LocaleData date;
+
+    @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
     public LocaleData getDate() {
