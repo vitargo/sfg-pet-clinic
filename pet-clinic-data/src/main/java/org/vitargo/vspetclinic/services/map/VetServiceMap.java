@@ -1,5 +1,6 @@
 package org.vitargo.vspetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.vitargo.vspetclinic.model.Speciality;
 import org.vitargo.vspetclinic.model.Vet;
@@ -9,6 +10,7 @@ import org.vitargo.vspetclinic.services.VetService;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialitiesService specialitiesService;
