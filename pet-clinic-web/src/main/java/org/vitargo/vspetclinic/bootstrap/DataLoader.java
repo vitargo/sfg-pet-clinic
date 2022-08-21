@@ -1,5 +1,6 @@
 package org.vitargo.vspetclinic.bootstrap;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.vitargo.vspetclinic.model.*;
@@ -7,6 +8,7 @@ import org.vitargo.vspetclinic.services.*;
 
 import java.time.LocalDate;
 
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -75,12 +77,15 @@ public class DataLoader implements CommandLineRunner {
         owner1.getPets().add(petOwner1);
         ownerService.save(owner1);
 
-        Owner owner2 = new Owner();
-        owner2.setFirstName("Mykola");
-        owner2.setLastName("CatOwner");
-        owner2.setAddress("Maydan Nezalezhnosti sqr.");
-        owner2.setCity("Kyiv");
-        owner2.setTelephone("+380222222222");
+//        Owner owner2 = new Owner();
+//        owner2.setFirstName("Mykola");
+//        owner2.setLastName("CatOwner");
+//        owner2.setAddress("Maydan Nezalezhnosti sqr.");
+//        owner2.setCity("Kyiv");
+//        owner2.setTelephone("+380222222222");
+
+        Owner owner2 = Owner.builder().firstName("Mykola").lastName("CatOwner").address("Maydan Nezalezhnosti sqr.")
+                .city("Kyiv").telephone("+380222222222").build();
 
         Pet petOwner2 = new Pet();
         petOwner2.setName("Zhuchka");
@@ -91,7 +96,7 @@ public class DataLoader implements CommandLineRunner {
         owner1.getPets().add(petOwner2);
         ownerService.save(owner2);
 
-        System.out.println("Loading owner...");
+        log.info("Loading owner...");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sofiia");
@@ -105,7 +110,7 @@ public class DataLoader implements CommandLineRunner {
         vet2.getSpecialities().add(surgery);
         vetService.save(vet2);
 
-        System.out.println("Loading vets...");
+        log.info("Loading vets...");
 
         Visit catVisit = new Visit();
         catVisit.setPet(petOwner1);
@@ -114,6 +119,6 @@ public class DataLoader implements CommandLineRunner {
 
         visitService.save(catVisit);
 
-        System.out.println("Loading visits...");
+        log.info("Loading visits...");
     }
 }

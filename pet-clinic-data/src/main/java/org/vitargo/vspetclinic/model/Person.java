@@ -1,8 +1,18 @@
 package org.vitargo.vspetclinic.model;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+@Slf4j
+@Getter
+@Setter
+@NoArgsConstructor
 @MappedSuperclass
 public class Person extends BaseEntity {
 
@@ -12,19 +22,11 @@ public class Person extends BaseEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
+    @Builder
+    public Person(Long id, String firstName, String lastName) {
+        super(id);
+        log.info("Person constructor");
         this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 }
