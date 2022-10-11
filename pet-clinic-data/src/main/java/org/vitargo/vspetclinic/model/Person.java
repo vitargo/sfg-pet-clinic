@@ -1,6 +1,5 @@
 package org.vitargo.vspetclinic.model;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,7 +21,6 @@ public class Person extends BaseEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    @Builder
     public Person(Long id, String firstName, String lastName) {
         super(id);
         log.info("Person constructor");
